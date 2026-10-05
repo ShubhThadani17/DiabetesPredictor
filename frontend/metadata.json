@@ -1,0 +1,7 @@
+{
+  "name": "DiaPredict AI - ML Diabetes Risk Prediction & Clinical Analytics",
+  "description": "Diabetes risk prediction and biomarker assessment using a voting ensemble (SVM + RF + MLP) with dynamic per-patient SHAP explainability.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

@@ -1,0 +1,25 @@
+# Node dependencies & build outputs
+node_modules/
+build/
+dist/
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+
+# Python virtual environments & bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ML Artifacts (Large model checkpoints if stored separately)
+*.pkl
+*.h5
+
