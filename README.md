@@ -2,11 +2,11 @@
 
 A full stack machine learning web app that predicts diabetes risk from patient health metrics, built for Project Exhibition I (B.Tech CSE Core, VIT Bhopal).
 
-**Live site**: _<!-- add deployed Vercel/Render link here -->_
+**Live site**: https://diabetes-predictor-agent.vercel.app
 
 **Team No. 19**
-- Shubh Thadani
 - Parth Shende
+- Shubh Thadani
 - Atharva Uday Desai
 - Gandem Vankata Sai Prathik
 - Aarushi Raizada
@@ -59,7 +59,7 @@ Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigr
 ## Project Structure
 
 ```
-.
+
 ├── ml/
 │   └── diaresearch.ipynb
 ├── backend/
@@ -79,30 +79,6 @@ Pregnancies, Glucose, BloodPressure, SkinThickness, Insulin, BMI, DiabetesPedigr
     ├── vite.config.ts
     └── tsconfig.json
 ```
-
-## Running Locally
-
-### Backend
-
-```bash
-cd backend
-pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
-```
-
-API docs available at `http://localhost:8000/docs`.
-
-### Frontend
-
-Built with Vite, so it needs a build step, opening `index.html` directly will not work correctly.
-
-```bash
-cd frontend
-bun install
-bun run dev
-```
-
-Update the `API_URL` constant in `app.js` to point at your backend (`http://localhost:8000/predict` for local, or the deployed backend URL otherwise).
 
 ## Model Performance
 
@@ -148,10 +124,5 @@ Note: a plain SVM baseline without SMOTE scored higher raw accuracy (0.77), but 
 
 ## Limitations
 
-- PIMA is a small (768 rows), single-population dataset; results may not generalize to broader populations
 - Not validated on an external/independent dataset
 - Not a diagnostic tool, this is a screening estimate only, built for an academic exhibition, not clinical use
-
-## License
-
-Academic project, built for coursework. Not licensed for clinical or commercial use.
