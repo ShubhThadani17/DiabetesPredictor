@@ -96,17 +96,20 @@ body {
 }
 
 .app-logo {
-  font-size: 24px;
-  line-height: 1;
-  background: linear-gradient(135deg, #0ea5e9 0%, #0d9488 100%);
-  color: #ffffff;
-  width: 46px;
-  height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  box-shadow: 0 4px 14px rgba(14, 165, 233, 0.35);
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.app-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .app-title {
