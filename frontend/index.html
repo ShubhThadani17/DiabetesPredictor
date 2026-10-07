@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Diabetes Risk Assessment</title>
   <link rel="icon" type="image/png" href="/assets/diabetes-logo.png">
-  <meta name="description" content="Professional clinical diabetes risk screening and biomarker contribution analysis." />
+  <meta name="description"
+    content="Professional clinical diabetes risk screening and biomarker contribution analysis." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
 </head>
+
 <body>
   <div class="app-wrapper">
     <header class="app-header">
@@ -42,7 +47,6 @@
           <div class="preset-buttons">
             <button type="button" class="btn-preset" id="sampleHighRiskBtn">High Risk Profile</button>
             <button type="button" class="btn-preset" id="sampleLowRiskBtn">Low Risk Profile</button>
-            <button type="button" class="btn-preset btn-preset-ghost" id="resetBtn">Clear Form</button>
           </div>
         </div>
 
@@ -74,12 +78,14 @@
             <div class="grid-3">
               <div class="form-control">
                 <label for="bloodPressure">Diastolic BP <span class="unit">(mm Hg)</span></label>
-                <input type="number" id="bloodPressure" name="bloodPressure" min="40" max="140" step="1" value="70" required />
+                <input type="number" id="bloodPressure" name="bloodPressure" min="40" max="140" step="1" value="70"
+                  required />
                 <span class="field-hint">Normal resting: 60 – 80 mm Hg</span>
               </div>
               <div class="form-control">
                 <label for="skinThickness">Triceps Skinfold <span class="unit">(mm)</span></label>
-                <input type="number" id="skinThickness" name="skinThickness" min="0" max="99" step="1" value="45" required />
+                <input type="number" id="skinThickness" name="skinThickness" min="0" max="99" step="1" value="45"
+                  required />
                 <span class="field-hint">Standard range: 10 – 40 mm</span>
               </div>
               <div class="form-control">
@@ -108,7 +114,8 @@
               </div>
               <div class="form-control">
                 <label for="diabetesPedigreeFunction">Pedigree Function <span class="unit">(DPF)</span></label>
-                <input type="number" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" min="0.05" max="2.5" step="0.001" value="0.158" required />
+                <input type="number" id="diabetesPedigreeFunction" name="diabetesPedigreeFunction" min="0.05" max="2.5"
+                  step="0.001" value="0.158" required />
                 <span class="field-hint">Genetic risk index (0.08 – 2.42)</span>
               </div>
             </div>
@@ -133,7 +140,8 @@
           <span class="api-alert-icon">⚠️</span>
           <div class="api-alert-content">
             <strong class="api-alert-title">Service Offline:</strong>
-            <span id="apiAlertText">The clinical assessment service is temporarily unavailable. Please verify the backend service connection.</span>
+            <span id="apiAlertText">The clinical assessment service is temporarily unavailable. Please verify the
+              backend service connection.</span>
           </div>
         </div>
 
@@ -141,7 +149,8 @@
           <div class="empty-icon">📊</div>
           <h3 class="empty-title">Ready for Assessment</h3>
           <p class="empty-desc">
-            Enter patient biometrics or select a profile above, then click <strong>Assess Risk</strong> to calculate estimated risk probability and biomarker contributions.
+            Enter patient biometrics or select a profile above, then click <strong>Assess Risk</strong> to calculate
+            estimated risk probability and biomarker contributions.
           </p>
         </div>
 
@@ -165,8 +174,10 @@
                   <stop offset="90%" stop-color="#ef4444" />
                 </linearGradient>
               </defs>
-              <path d="M 30 130 A 100 100 0 0 1 230 130" class="gauge-track" fill="none" stroke-width="16" stroke-linecap="round" />
-              <path d="M 30 130 A 100 100 0 0 1 230 130" class="gauge-fill" fill="none" stroke="url(#gaugeGradient)" stroke-width="16" stroke-linecap="round" />
+              <path d="M 30 130 A 100 100 0 0 1 230 130" class="gauge-track" fill="none" stroke-width="16"
+                stroke-linecap="round" />
+              <path d="M 30 130 A 100 100 0 0 1 230 130" class="gauge-fill" fill="none" stroke="url(#gaugeGradient)"
+                stroke-width="16" stroke-linecap="round" />
               <circle cx="130" cy="130" r="8" class="gauge-hub" />
               <g id="gaugeNeedleGroup" class="gauge-needle-group">
                 <line x1="130" y1="130" x2="45" y2="130" class="gauge-needle" stroke-width="3" stroke-linecap="round" />
@@ -195,7 +206,8 @@
           <div id="disclaimerBox" class="disclaimer-box">
             <div class="disclaimer-icon" id="disclaimerIcon">ℹ️</div>
             <p class="disclaimer-text" id="disclaimerText">
-              Clinical decision-support tool. Results are intended for exploratory screening and not a substitute for formal medical evaluation.
+              Clinical decision-support tool. Results are intended for exploratory screening and not a substitute for
+              formal medical evaluation.
             </p>
           </div>
         </div>
@@ -211,4 +223,5 @@
 
   <script type="module" src="/app.js"></script>
 </body>
+
 </html>

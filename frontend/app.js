@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const sampleLowRiskBtn = document.getElementById('sampleLowRiskBtn');
   const sampleHighRiskBtn = document.getElementById('sampleHighRiskBtn');
-  const resetBtn = document.getElementById('resetBtn');
 
   const inputs = {
     glucose: document.getElementById('glucose'),
@@ -70,12 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  resetBtn?.addEventListener('click', () => {
-    form.reset();
-    apiAlert?.classList.add('hidden');
-    emptyState.classList.remove('hidden');
-    resultState.classList.add('hidden');
-  });
+
 
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -93,14 +87,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const diabetesPedigreeFunction = parseFloat(inputs.diabetesPedigreeFunction.value) || 0.1;
 
     const payload = {
-    pregnancies,
-    glucose,
-    blood_pressure: bloodPressure,
-    skin_thickness: skinThickness,
-    insulin,
-    bmi,
-    diabetes_pedigree_function: diabetesPedigreeFunction,
-    age,
+      pregnancies,
+      glucose,
+      blood_pressure: bloodPressure,
+      skin_thickness: skinThickness,
+      insulin,
+      bmi,
+      diabetes_pedigree_function: diabetesPedigreeFunction,
+      age,
     };
 
     setLoading(true);
