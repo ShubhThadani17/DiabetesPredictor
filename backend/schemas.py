@@ -3,7 +3,7 @@ from pydantic import BaseModel, Field
 
 class PatientInput(BaseModel):
     pregnancies: int = Field(ge=0, le=20)
-    glucose: float = Field(ge=0, le=300)
+    glucose: float = Field(ge=5, le=300)
     blood_pressure: float = Field(ge=0, le=200)
     skin_thickness: float = Field(ge=0, le=100)
     insulin: float = Field(ge=0, le=900)
