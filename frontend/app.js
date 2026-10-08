@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       age: 53,
     });
   });
-//low risk
+
   sampleLowRiskBtn?.addEventListener('click', () => {
     populateProfile({
       pregnancies: 1,
@@ -69,22 +69,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-
-
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     handleAssessment();
   });
 
   async function handleAssessment() {
-    const glucose = parseFloat(inputs.glucose.value) || 0;
-    const insulin = parseFloat(inputs.insulin.value) || 0;
-    const bloodPressure = parseFloat(inputs.bloodPressure.value) || 0;
-    const skinThickness = parseFloat(inputs.skinThickness.value) || 0;
-    const bmi = parseFloat(inputs.bmi.value) || 0;
-    const age = parseInt(inputs.age.value, 10) || 21;
-    const pregnancies = parseInt(inputs.pregnancies.value, 10) || 0;
-    const diabetesPedigreeFunction = parseFloat(inputs.diabetesPedigreeFunction.value) || 0.1;
+    const glucose = parseFloat(inputs.glucose.value);
+    const insulin = parseFloat(inputs.insulin.value);
+    const bloodPressure = parseFloat(inputs.bloodPressure.value);
+    const skinThickness = parseFloat(inputs.skinThickness.value);
+    const bmi = parseFloat(inputs.bmi.value);
+    const age = parseInt(inputs.age.value, 10);
+    const pregnancies = parseInt(inputs.pregnancies.value, 10);
+    const diabetesPedigreeFunction = parseFloat(inputs.diabetesPedigreeFunction.value);
+
+    // Check values before sending them to the backend
+    if (
+      !Number.isFinite(glucose) || glucose < 40 || glucose > 250 ||
+      !Number.isFinite(insulin) || insulin < 10 || insulin > 900 ||
+      !Number.isFinite(bloodPressure) || bloodPressure < 20 || bloodPressure > 150 ||
+      !Number.isFinite(skinThickness) || skinThickness < 5 || skinThickness > 100 ||
+      !Number.isFinite(bmi) || bmi < 10 || bmi > 70 ||
+      !Number.isInteger(age) || age < 18 || age > 100 ||
+      !Number.isInteger(pregnancies) || pregnancies < 0 || pregnancies > 20 ||
+      !Number.isFinite(diabetesPedigreeFunction) ||
+      diabetesPedigreeFunction < 0 || diabetesPedigreeFunction > 3
+    ) {
+      alert('Please enter valid values within the allowed ranges.');
+      return;
+    }
 
     const payload = {
       pregnancies,
@@ -196,8 +210,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof item === 'string') {
         return { feature: item, impact: 0.1, direction: 'increases risk' };
       }
+
       const feature = item.feature || item.name || item.biomarker || 'Biomarker';
       let impact = 0;
+
       if (typeof item.impact === 'number') {
         impact = item.impact;
       } else if (typeof item.shap_value === 'number') {
@@ -259,6 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateDisclaimer(isHighRisk) {
     disclaimerBox.className = 'disclaimer-box';
+
     if (isHighRisk) {
       disclaimerBox.classList.add('at-risk');
       disclaimerIcon.textContent = '⚠️';
