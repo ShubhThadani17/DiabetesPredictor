@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
       age: 53,
     });
   });
-
+//low risk
   sampleLowRiskBtn?.addEventListener('click', () => {
     populateProfile({
       pregnancies: 1,
