@@ -18,6 +18,8 @@
 
 <body>
   <div class="app-wrapper">
+
+    <!-- Header -->
     <header class="app-header">
       <div class="header-left">
         <div class="header-title-group">
@@ -30,18 +32,22 @@
           </div>
         </div>
       </div>
+
       <div class="header-right">
         <span class="model-badge"><span class="badge-dot"></span> Clinical Risk Engine</span>
       </div>
     </header>
 
     <main class="main-container">
+
+      <!-- Patient input section -->
       <section class="card form-card">
         <div class="card-header">
           <h2 class="card-title">Patient Biomarkers</h2>
           <p class="card-desc">Enter physiological indicators to evaluate clinical risk probability.</p>
         </div>
 
+        <!-- Quick profiles for testing -->
         <div class="preset-toolbar">
           <span class="preset-label">Quick profiles:</span>
           <div class="preset-buttons">
@@ -50,12 +56,16 @@
           </div>
         </div>
 
+        <!-- Patient input form -->
         <form id="predictionForm">
+
+          <!-- Metabolic indicators -->
           <div class="field-group group-metabolic">
             <div class="group-header">
               <span class="group-icon">🧪</span>
               <h3 class="group-title">Metabolic Indicators</h3>
             </div>
+
             <div class="grid-2">
               <div class="form-control">
                 <label for="glucose">Fasting Glucose <span class="unit">(mg/dL)</span></label>
@@ -71,6 +81,7 @@
             </div>
           </div>
 
+          <!-- Vital signs -->
           <div class="field-group group-vitals">
             <div class="group-header">
               <span class="group-icon">💓</span>
@@ -100,6 +111,7 @@
             </div>
           </div>
 
+          <!-- Demographics and history -->
           <div class="field-group group-history">
             <div class="group-header">
               <span class="group-icon">📋</span>
@@ -128,6 +140,7 @@
             </div>
           </div>
 
+          <!-- Submit button -->
           <div class="form-actions">
             <button type="submit" id="submitBtn" class="btn-primary">
               <span class="btn-text" id="btnText">Assess Risk</span>
@@ -137,12 +150,14 @@
         </form>
       </section>
 
+      <!-- Risk result section -->
       <section class="card result-card">
         <div class="card-header">
           <h2 class="card-title">Risk Assessment</h2>
           <p class="card-desc">Calibrated probability score and contributing factors.</p>
         </div>
 
+        <!-- Shown if backend/API is unavailable -->
         <div id="apiAlert" class="api-alert hidden">
           <span class="api-alert-icon">⚠️</span>
           <div class="api-alert-content">
@@ -152,6 +167,7 @@
           </div>
         </div>
 
+        <!-- Initial state before prediction -->
         <div id="emptyState" class="empty-state">
           <div class="empty-icon">📊</div>
           <h3 class="empty-title">Ready for Assessment</h3>
@@ -161,6 +177,7 @@
           </p>
         </div>
 
+        <!-- Prediction results -->
         <div id="resultState" class="result-state hidden">
           <div class="risk-header">
             <div class="risk-badge-wrapper">
@@ -173,6 +190,7 @@
             </div>
           </div>
 
+          <!-- Risk gauge -->
           <div class="gauge-container">
             <svg class="gauge-svg" viewBox="0 0 260 145" aria-label="Risk Gauge">
               <defs>
@@ -192,8 +210,7 @@
               <circle cx="130" cy="130" r="8" class="gauge-hub" />
 
               <g id="gaugeNeedleGroup" class="gauge-needle-group">
-                <line x1="130" y1="130" x2="45" y2="130" class="gauge-needle" stroke-width="3"
-                  stroke-linecap="round" />
+                <line x1="130" y1="130" x2="45" y2="130" class="gauge-needle" stroke-width="3" stroke-linecap="round" />
                 <circle cx="130" cy="130" r="4" fill="#ffffff" />
               </g>
             </svg>
@@ -205,6 +222,7 @@
             </div>
           </div>
 
+          <!-- SHAP factors are added here -->
           <div id="factorsSection" class="factors-section">
             <div class="factors-header">
               <h3 class="factors-title">Key Influencing Biomarkers</h3>
@@ -218,9 +236,9 @@
             <div id="factorsList" class="factors-list"></div>
           </div>
 
+          <!-- Medical disclaimer -->
           <div id="disclaimerBox" class="disclaimer-box">
             <div class="disclaimer-icon" id="disclaimerIcon">ℹ️</div>
-
             <p class="disclaimer-text" id="disclaimerText">
               Clinical decision-support tool. Results are intended for exploratory screening and not a substitute for
               formal medical evaluation.
@@ -237,7 +255,9 @@
     </footer>
   </div>
 
+  <!-- Main frontend logic -->
   <script type="module" src="/app.js"></script>
+
 </body>
 
 </html>
